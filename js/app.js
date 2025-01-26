@@ -3,14 +3,17 @@ function adicionar() {
 
     if (produtoAdicionar[2] == 0) {
         alert("Insira a quantidade do produto.");
-    } else if (produtoAdicionar[2] < 0) {
-        alert("A quantidade deve ser um valor positivo.");
-    } else {
-        valorTotalProduto = produtoAdicionar[1] * produtoAdicionar[2];
-        criarEAdicionarSecaoProduto(produtoAdicionar, valorTotalProduto);
-        document.getElementById("quantidade").value = 0;
-        calcularValorTotal(valorTotalProduto);
+        return;
     }
+    if (produtoAdicionar[2] < 0) {
+        alert("A quantidade deve ser um valor positivo.");
+        return;
+    }
+
+    valorTotalProduto = produtoAdicionar[1] * produtoAdicionar[2];
+    criarEAdicionarSecaoProduto(produtoAdicionar, valorTotalProduto);
+    document.getElementById("quantidade").value = 0;
+    calcularValorTotal(valorTotalProduto);
 }
 
 function capturarDadosProduto() {
