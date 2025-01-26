@@ -21,11 +21,9 @@ function obterNomeProduto(produto) {
 }
 
 function capturarDadosProduto() {
-    let produtos = document.getElementById("produto");
-    let indice = produto.selectedIndex;
-    let produtoSelecionado = produtos.options[indice].text;
-    let nomeProduto = obterNomeProduto(produtoSelecionado);
-    let valorProduto = parseInt(obterValorProduto(produtoSelecionado));
+    let produto = document.getElementById("produto").value;
+    let nomeProduto = obterNomeProduto(produto);
+    let valorProduto = parseInt(obterValorProduto(produto));
     let quantidade = parseInt(document.getElementById("quantidade").value);
     return [nomeProduto, valorProduto, quantidade];
 }
