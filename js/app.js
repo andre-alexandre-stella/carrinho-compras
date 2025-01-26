@@ -1,12 +1,13 @@
 function adicionar() {
     let produtoAdicionar = capturarDadosProduto();
 
-    if (validarQtde(produtoAdicionar[2])) {
-        valorTotalProduto = produtoAdicionar[1] * produtoAdicionar[2];
-        criarEAdicionarSecaoProduto(produtoAdicionar, valorTotalProduto);        
-        calcularValorTotal(valorTotalProduto);        
-    } else {
+    if (produtoAdicionar[2] == 0) {
         alert("Insira a quantidade do produto.");
+    } else {
+        valorTotalProduto = produtoAdicionar[1] * produtoAdicionar[2];
+        criarEAdicionarSecaoProduto(produtoAdicionar, valorTotalProduto);
+        document.getElementById("quantidade").value = 0;
+        calcularValorTotal(valorTotalProduto);
     }
 }
 
@@ -18,12 +19,6 @@ function capturarDadosProduto() {
     return [nomeProduto, valorProduto, quantidade];
 }
 
-function validarQtde(quantidade) {
-    let validado = true;
-    if (isNaN(quantidade)) validado = false;
-    return validado;
-}
-
 function criarEAdicionarSecaoProduto(produto, valorTotal) {
     let novaSecao = document.createElement("section");
     novaSecao.classList.add("carrinho__produtos__produto");
@@ -32,10 +27,10 @@ function criarEAdicionarSecaoProduto(produto, valorTotal) {
     container.appendChild(novaSecao);
 }
 
-function limpar() { 
+function limpar() {
     valorTotal = 0;
     document.getElementById("valor-total").textContent = "";
-    document.getElementById("quantidade").value = "";
+    document.getElementById("quantidade").value = 0;
     document.getElementById("lista-produtos").innerHTML = "";
 }
 
