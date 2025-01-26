@@ -2,8 +2,8 @@ function adicionar() {
     let produtoAdicionar = capturarDadosProduto();
 
     if (validarQtde(produtoAdicionar[2])) {
-        criarEAdicionarSecaoProduto(produtoAdicionar);
         valorTotalProduto = produtoAdicionar[1] * produtoAdicionar[2];
+        criarEAdicionarSecaoProduto(produtoAdicionar, valorTotalProduto);        
         calcularValorTotal(valorTotalProduto);        
     } else {
         alert("Insira a quantidade do produto.");
@@ -24,10 +24,10 @@ function validarQtde(quantidade) {
     return validado;
 }
 
-function criarEAdicionarSecaoProduto(produto) {
+function criarEAdicionarSecaoProduto(produto, valorTotal) {
     let novaSecao = document.createElement("section");
     novaSecao.classList.add("carrinho__produtos__produto");
-    novaSecao.innerHTML = `<span class="texto-azul">${produto[2]}x</span> ${produto[0]} <span class="texto-azul">R$${produto[1]}</span>`
+    novaSecao.innerHTML = `<span class="texto-azul">${produto[2]}x</span> ${produto[0]} <span class="texto-azul">R$${valorTotal}</span>`
     let container = document.getElementById("lista-produtos");
     container.appendChild(novaSecao);
 }
