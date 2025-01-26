@@ -49,6 +49,5 @@ document.addEventListener('DOMContentLoaded', function () {
     limpar();
 });
 
-let valorTotal = parseInt(document.getElementById("valor-total").textContent);
-valorTotal = 0;
+let valorTotal = 0;
 
