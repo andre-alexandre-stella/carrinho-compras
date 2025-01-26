@@ -3,6 +3,8 @@ function adicionar() {
 
     if (produtoAdicionar[2] == 0) {
         alert("Insira a quantidade do produto.");
+    } else if (produtoAdicionar[2] < 0) {
+        alert("A quantidade deve ser um valor positivo.");
     } else {
         valorTotalProduto = produtoAdicionar[1] * produtoAdicionar[2];
         criarEAdicionarSecaoProduto(produtoAdicionar, valorTotalProduto);
