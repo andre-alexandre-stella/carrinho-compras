@@ -10,20 +10,10 @@ function adicionar() {
     }
 }
 
-function obterValorProduto(produto) {
-    let indiceDoReal = produto.indexOf("R$");
-    return produto.substring(indiceDoReal + 2);
-}
-
-function obterNomeProduto(produto) {
-    let indiceDoHifen = produto.indexOf("-");
-    return produto.substring(0, indiceDoHifen - 1);
-}
-
 function capturarDadosProduto() {
     let produto = document.getElementById("produto").value;
-    let nomeProduto = obterNomeProduto(produto);
-    let valorProduto = parseInt(obterValorProduto(produto));
+    let nomeProduto = produto.split(" -")[0];
+    let valorProduto = parseInt(produto.split("R$")[1]);
     let quantidade = parseInt(document.getElementById("quantidade").value);
     return [nomeProduto, valorProduto, quantidade];
 }
