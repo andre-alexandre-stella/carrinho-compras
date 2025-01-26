@@ -40,9 +40,6 @@ function calcularValorTotal(valorProduto) {
     document.getElementById("valor-total").textContent = textoValorTotal;
 }
 
-document.addEventListener('DOMContentLoaded', function () {
-    limpar();
-});
-
 let valorTotal = 0;
+limpar();
 
